@@ -1,5 +1,5 @@
 package ru.javarush.khmelov.cryptoanalizer.entity;
 
-public interface Result {
+public class Result {
 
 }
