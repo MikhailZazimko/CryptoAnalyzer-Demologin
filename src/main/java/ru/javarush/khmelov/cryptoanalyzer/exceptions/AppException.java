@@ -1,4 +1,4 @@
-package ru.javarush.khmelov.cryptoanalizer.exceptions;
+package ru.javarush.khmelov.cryptoanalyzer.exceptions;
 
 public class AppException extends RuntimeException{
 }

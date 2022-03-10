@@ -1,6 +1,6 @@
-package ru.javarush.khmelov.cryptoanalizer.commands;
+package ru.javarush.khmelov.cryptoanalyzer.commands;
 
-import ru.javarush.khmelov.cryptoanalizer.entity.Result;
+import ru.javarush.khmelov.cryptoanalyzer.entity.Result;
 
 public class Decoder implements Action{
     @Override

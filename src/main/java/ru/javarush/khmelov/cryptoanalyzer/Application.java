@@ -1,8 +1,8 @@
-package ru.javarush.khmelov.cryptoanalizer;
+package ru.javarush.khmelov.cryptoanalyzer;
 
-import ru.javarush.khmelov.cryptoanalizer.controllers.MainController;
-import ru.javarush.khmelov.cryptoanalizer.entity.Result;
-import ru.javarush.khmelov.cryptoanalizer.exceptions.AppException;
+import ru.javarush.khmelov.cryptoanalyzer.controllers.MainController;
+import ru.javarush.khmelov.cryptoanalyzer.entity.Result;
+import ru.javarush.khmelov.cryptoanalyzer.exceptions.AppException;
 
 import java.util.Arrays;
 

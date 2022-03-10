@@ -1,4 +1,4 @@
-package ru.javarush.khmelov.cryptoanalizer.constants;
+package ru.javarush.khmelov.cryptoanalyzer.constants;
 
 import java.io.File;
 

@@ -1,6 +1,6 @@
-package ru.javarush.khmelov.cryptoanalizer.controllers;
+package ru.javarush.khmelov.cryptoanalyzer.controllers;
 
-import ru.javarush.khmelov.cryptoanalizer.entity.Result;
+import ru.javarush.khmelov.cryptoanalyzer.entity.Result;
 
 public class MainController {
 

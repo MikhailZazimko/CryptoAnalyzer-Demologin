@@ -1,6 +1,6 @@
-package ru.javarush.khmelov.cryptoanalizer;
+package ru.javarush.khmelov.cryptoanalyzer;
 
-import ru.javarush.khmelov.cryptoanalizer.entity.Result;
+import ru.javarush.khmelov.cryptoanalyzer.entity.Result;
 
 public class ConsoleRunner {
     public static void main(String[] args) {
