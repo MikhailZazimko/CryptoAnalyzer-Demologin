@@ -10,6 +10,3 @@ public class ConsoleRunner {
     }
 }
 
-//int key=123; //<<<< args
-//String text="Привет медвед!"; //<<<< args
-//String result=".........."; //<<<< args
