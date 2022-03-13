@@ -19,7 +19,7 @@ public class Application {
             String action = args[0];
             String[] parameters = Arrays.copyOfRange(args, 1, args.length);
             return mainController.doAction(action, parameters);
-        }
-        throw new AppException();
+        } else
+            throw new AppException("no args");
     }
 }
