@@ -37,8 +37,8 @@ public class ConsoleRunner {
             {
                     {"analyze"},
                     {"Enter source (full path OR only filename OR Enter for encrypted.txt) :", "encrypted.txt"},
-                    {"Enter destination (full path OR only filename OR Enter for analyzed.txt) :", "analyzed.txt"},
                     {"Enter dictionary  (full path OR only filename OR Enter for dict.txt) :", "dict.txt"},
+                    {"Enter destination (full path OR only filename OR Enter for analyzed.txt) :", "analyzed.txt"},
             },
     };
     public static final String MESSAGE_SELECT_MODE = """
