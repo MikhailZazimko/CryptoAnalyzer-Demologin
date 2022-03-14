@@ -6,6 +6,16 @@ import java.util.Scanner;
 
 public class ConsoleRunner {
 
+    public static void main(String[] args) {
+        Application application = new Application();
+        args = getArgs(args);
+        Result result = application.run(args);
+        System.out.println(result);
+    }
+
+
+
+
     public static final String[][][] QUESTIONS = new String[][][]{
             {
                     {"encode"},
@@ -38,14 +48,8 @@ public class ConsoleRunner {
             3. Brute force
             4. Analyze
             """;
-    public static final String INCORRECT_SELECTION = "Incorrect selection";
 
-    public static void main(String[] args) {
-        Application application = new Application();
-        args = getArgs(args);
-        Result result = application.run(args);
-        System.out.println(result);
-    }
+    public static final String INCORRECT_SELECTION = "Incorrect selection";
 
     private static String[] getArgs(String[] args) {
         if (args.length == 0) {
