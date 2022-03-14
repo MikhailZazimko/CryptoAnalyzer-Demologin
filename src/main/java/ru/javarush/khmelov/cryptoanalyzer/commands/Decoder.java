@@ -1,10 +1,12 @@
 package ru.javarush.khmelov.cryptoanalyzer.commands;
 
 import ru.javarush.khmelov.cryptoanalyzer.entity.Result;
+import ru.javarush.khmelov.cryptoanalyzer.entity.ResultCode;
 
 public class Decoder implements Action{
     @Override
-    public Result execute(String[] parameters) {
-        return null;
+    public Result execute(String[] parameters)  {
+        //TODO something do
+        return new Result("decode all right", ResultCode.OK);
     }
 }
