@@ -7,6 +7,6 @@ public class BrudeForce implements Action{
     @Override
     public Result execute(String[] parameters)  {
         //TODO something do
-        return new Result("BrudeForce complete", ResultCode.OK);
+        return new Result("BruteForce complete", ResultCode.OK);
     }
 }
