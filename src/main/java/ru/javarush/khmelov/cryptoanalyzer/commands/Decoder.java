@@ -19,14 +19,17 @@ public class Decoder implements Action {
         int key = Integer.parseInt(parameters[2]);
         try (
                 BufferedReader reader = Files.newBufferedReader(PathBuilder.get(sourceTextFile));
-                BufferedWriter writer = Files.newBufferedWriter(PathBuilder.get(encryptedFile));
+                BufferedWriter writer = Files.newBufferedWriter(PathBuilder.get(encryptedFile))
         ) {
             while (reader.ready()) {
-                Character character = (char) reader.read();
+                char character = (char) reader.read();
                 if (Constants.alphabetIndex.containsKey(character)) {
                     Integer index = Constants.alphabetIndex.get(character);
                     index = (index - key + Constants.ALPHABET.length) % Constants.ALPHABET.length;
                     writer.write(Constants.ALPHABET[index]);
+                }
+                if (character == '\n') {
+                    writer.write(character);
                 }
             }
         } catch (IOException e) {
