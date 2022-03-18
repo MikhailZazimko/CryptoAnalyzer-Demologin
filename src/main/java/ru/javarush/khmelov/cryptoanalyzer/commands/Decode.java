@@ -11,7 +11,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 
-public class Encoder implements Action {
+public class Decode implements Action {
     @Override
     public Result execute(String[] parameters) {
         String sourceTextFile = parameters[0];
@@ -23,10 +23,9 @@ public class Encoder implements Action {
         ) {
             while (reader.ready()) {
                 char character = (char) reader.read();
-                character = Character.toLowerCase(character);
                 if (Constants.alphabetIndex.containsKey(character)) {
                     Integer index = Constants.alphabetIndex.get(character);
-                    index = (index + key) % Constants.ALPHABET.length;
+                    index = (index - key + Constants.ALPHABET.length) % Constants.ALPHABET.length;
                     writer.write(Constants.ALPHABET[index]);
                 }
                 if (character == '\n') {
@@ -36,6 +35,6 @@ public class Encoder implements Action {
         } catch (IOException e) {
             throw new AppException(e.getMessage(), e);
         }
-        return new Result(ResultCode.OK, "encode complete");
+        return new Result(ResultCode.OK, encryptedFile);
     }
 }

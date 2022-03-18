@@ -43,7 +43,7 @@ public class BruteForce implements Action {
         parameters = new String[]{parameters[0], parameters[1], Integer.toString(bestKey)};
         ActionContainer.get("decode").execute(parameters);
         System.out.println(bestSpaceCount);
-        return new Result(ResultCode.OK, "bruteforce complete");
+        return new Result(ResultCode.OK, parameters[1]);
 
     }
 }

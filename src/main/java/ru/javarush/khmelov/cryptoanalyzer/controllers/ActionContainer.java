@@ -6,8 +6,8 @@ import ru.javarush.khmelov.cryptoanalyzer.exceptions.AppException;
 @SuppressWarnings("unused")
 public enum ActionContainer {
 
-    ENCODE(new Encoder()),
-    DECODE(new Decoder()),
+    ENCODE(new Encode()),
+    DECODE(new Decode()),
     BRUTEFORCE(new BruteForce()),
     ANALYZE(new Analyze());
 

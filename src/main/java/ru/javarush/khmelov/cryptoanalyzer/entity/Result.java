@@ -2,18 +2,18 @@ package ru.javarush.khmelov.cryptoanalyzer.entity;
 
 public class Result {
     public final ResultCode resultCode;
-    public final String message;
+    public final String resultFile;
 
-    public Result(ResultCode resultCode, String message) {
+    public Result(ResultCode resultCode, String resultFile) {
         this.resultCode = resultCode;
-        this.message = message;
+        this.resultFile = resultFile;
     }
 
     @Override
     public String toString() {
         return "Result{" +
                 "resultCode=" + resultCode +
-                ", message='" + message + '\'' +
+                ", message='" + resultFile + '\'' +
                 '}';
     }
 }
