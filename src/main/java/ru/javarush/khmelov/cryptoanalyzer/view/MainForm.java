@@ -53,6 +53,10 @@ public class MainForm extends JFrame {
     private JTextField ch1;
     private JTextField ch2;
 
+    static {
+        setLookAndFeel("Nimbus");
+    }
+
     public MainForm(MainController controller) {
         this.controller = controller;
         this.add(panel);
@@ -178,11 +182,6 @@ public class MainForm extends JFrame {
 
     }
 
-    public static void main(String[] args) {
-        setLookAndFeel("Nimbus");
-        MainController controller = new MainController();
-        MainForm mainForm = new MainForm(controller);
-    }
 
     @SuppressWarnings("SameParameterValue")
     private static void setLookAndFeel(String nameLookAndFeel) {
