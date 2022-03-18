@@ -28,30 +28,56 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="64b9f" class="javax.swing.JButton" binding="button1" default-binding="true">
+          <component id="2831f" class="javax.swing.JTextField" binding="ch2">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+              <gridbag top="0" left="25" bottom="25" right="25" weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="8a325" class="javax.swing.JTextField" binding="ch1">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+              <gridbag top="0" left="25" bottom="25" right="25" weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="64b9f" class="javax.swing.JButton" binding="swap">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
             <properties>
-              <text value="Button"/>
+              <text value="Swap"/>
             </properties>
           </component>
-          <hspacer id="e7c82">
+          <component id="7562f" class="javax.swing.JLabel">
             <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
-          </hspacer>
-          <vspacer id="9ba45">
+            <properties>
+              <text value="First Character"/>
+            </properties>
+          </component>
+          <component id="2fbe" class="javax.swing.JLabel">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
-          </vspacer>
+            <properties>
+              <text value="Second Character"/>
+            </properties>
+          </component>
         </children>
       </grid>
-      <grid id="ed28b" binding="bottom" layout-manager="GridLayoutManager" row-count="6" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="ed28b" binding="bottom" layout-manager="GridLayoutManager" row-count="7" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints border-constraint="South"/>
         <properties/>
@@ -68,7 +94,7 @@
           <component id="de3c" class="javax.swing.JTextField" binding="text">
             <constraints>
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
+                <preferred-size width="384" height="30"/>
               </grid>
             </constraints>
             <properties>
@@ -87,7 +113,7 @@
           <component id="982ab" class="javax.swing.JTextField" binding="encrypted">
             <constraints>
               <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
+                <preferred-size width="384" height="30"/>
               </grid>
             </constraints>
             <properties>
@@ -108,21 +134,21 @@
               <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="     briteforced"/>
+              <text value="briteforced"/>
             </properties>
           </component>
           <component id="67da5" class="javax.swing.JLabel">
             <constraints>
-              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="analyzed"/>
             </properties>
           </component>
-          <component id="93d37" class="javax.swing.JTextField" binding="decypted">
+          <component id="93d37" class="javax.swing.JTextField" binding="decrypted">
             <constraints>
               <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
+                <preferred-size width="384" height="30"/>
               </grid>
             </constraints>
             <properties>
@@ -130,10 +156,10 @@
               <text value="decrypted.txt"/>
             </properties>
           </component>
-          <component id="850da" class="javax.swing.JTextField" binding="bruteforced">
+          <component id="850da" class="javax.swing.JTextField" binding="bruteforce">
             <constraints>
               <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
+                <preferred-size width="384" height="30"/>
               </grid>
             </constraints>
             <properties>
@@ -143,8 +169,8 @@
           </component>
           <component id="cef18" class="javax.swing.JTextField" binding="analyzed">
             <constraints>
-              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
+              <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="384" height="30"/>
               </grid>
             </constraints>
             <properties>
@@ -152,7 +178,7 @@
               <text value="analyzed.txt"/>
             </properties>
           </component>
-          <component id="cd510" class="javax.swing.JButton" binding="changeButton" default-binding="true">
+          <component id="cd510" class="javax.swing.JButton" binding="setEncrypted">
             <constraints>
               <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -168,7 +194,7 @@
               <text value="Change"/>
             </properties>
           </component>
-          <component id="fde09" class="javax.swing.JButton" binding="changeButton2" default-binding="true">
+          <component id="fde09" class="javax.swing.JButton" binding="setDecrypted">
             <constraints>
               <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -176,7 +202,7 @@
               <text value="Change"/>
             </properties>
           </component>
-          <component id="b0d70" class="javax.swing.JButton" binding="changeButton1" default-binding="true">
+          <component id="b0d70" class="javax.swing.JButton" binding="setBruteforce">
             <constraints>
               <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -184,15 +210,15 @@
               <text value="Change"/>
             </properties>
           </component>
-          <component id="29020" class="javax.swing.JButton" binding="changeButton3" default-binding="true">
+          <component id="29020" class="javax.swing.JButton" binding="setAnalized">
             <constraints>
-              <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Change"/>
             </properties>
           </component>
-          <component id="1900d" class="javax.swing.JButton" binding="encode">
+          <component id="1900d" class="javax.swing.JButton" binding="runEncode">
             <constraints>
               <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -201,7 +227,7 @@
               <text value="Encode"/>
             </properties>
           </component>
-          <component id="a2027" class="javax.swing.JButton" binding="decode">
+          <component id="a2027" class="javax.swing.JButton" binding="runDecode">
             <constraints>
               <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -210,7 +236,7 @@
               <text value="Decode"/>
             </properties>
           </component>
-          <component id="1e766" class="javax.swing.JButton" binding="bruteforce">
+          <component id="1e766" class="javax.swing.JButton" binding="runBruteforce">
             <constraints>
               <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -221,14 +247,14 @@
           </component>
           <component id="3e9d1" class="javax.swing.JButton" binding="analyze">
             <constraints>
-              <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font style="1"/>
               <text value="Analyze"/>
             </properties>
           </component>
-          <component id="d454b" class="javax.swing.JButton" binding="loadButton4" default-binding="true">
+          <component id="d454b" class="javax.swing.JButton" binding="loadText">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -236,7 +262,7 @@
               <text value="Load"/>
             </properties>
           </component>
-          <component id="b4721" class="javax.swing.JButton" binding="loadButton3" default-binding="true">
+          <component id="b4721" class="javax.swing.JButton" binding="loadEncrytpted">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -244,7 +270,7 @@
               <text value="Load"/>
             </properties>
           </component>
-          <component id="8ab62" class="javax.swing.JButton" binding="loadButton1" default-binding="true">
+          <component id="8ab62" class="javax.swing.JButton" binding="loadDecrypted">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -252,7 +278,7 @@
               <text value="Load"/>
             </properties>
           </component>
-          <component id="b51d0" class="javax.swing.JButton" binding="loadButton2" default-binding="true">
+          <component id="b51d0" class="javax.swing.JButton" binding="loadBruteforce">
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -260,7 +286,36 @@
               <text value="Load"/>
             </properties>
           </component>
-          <component id="3ed72" class="javax.swing.JButton" binding="loadButton" default-binding="true">
+          <component id="3ed72" class="javax.swing.JButton" binding="loadAnaliyzed">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Load"/>
+            </properties>
+          </component>
+          <component id="42228" class="javax.swing.JSlider" binding="keySlider">
+            <constraints>
+              <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="384" height="23"/>
+              </grid>
+            </constraints>
+            <properties>
+              <paintLabels value="true"/>
+              <paintTicks value="true"/>
+              <value value="0"/>
+            </properties>
+          </component>
+          <component id="33c7c" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font style="1"/>
+              <text value="KEY"/>
+            </properties>
+          </component>
+          <component id="8bf1d" class="javax.swing.JButton" binding="loadDict">
             <constraints>
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -268,24 +323,36 @@
               <text value="Load"/>
             </properties>
           </component>
-          <component id="42228" class="javax.swing.JSlider" binding="slider1" default-binding="true">
+          <component id="476cd" class="javax.swing.JLabel">
             <constraints>
-              <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties/>
-          </component>
-          <component id="33c7c" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <font style="1"/>
-              <text value="KEY"/>
+              <text value="dictionary"/>
+            </properties>
+          </component>
+          <component id="2b824" class="javax.swing.JTextField" binding="dict">
+            <constraints>
+              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="384" height="30"/>
+              </grid>
+            </constraints>
+            <properties>
+              <font name="Courier New" style="1"/>
+              <text value="dict.txt"/>
+            </properties>
+          </component>
+          <component id="92d67" class="javax.swing.JButton" binding="setDict">
+            <constraints>
+              <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Change"/>
             </properties>
           </component>
           <component id="aa502" class="javax.swing.JSpinner" binding="key">
             <constraints>
-              <grid row="5" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="6" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
           </component>

@@ -6,9 +6,6 @@ import java.util.Map;
 
 public class Constants {
     private static final String rus = "ЙЦУКЕНГШЩЗХЪЭЖДЛОРПАВЫФЯЧСМИТЬБЮ";
-    private static final String eng = "QWERTYUIOPLKJHGFDSAZXCVBNM";
-    private static final String numbers = "0123456789";
-    //private static final String symbols = " -!@#$%^&*()[]{}?.,;:'\"";
     private static final String symbols = "☮.,”’:-!? ";
 
     public static final char[] ALPHABET = (rus.toLowerCase() + symbols)
@@ -17,7 +14,7 @@ public class Constants {
             File.separator +
             "text" +
             File.separator;
-    public static Map<Character, Integer> alphabetIndex = new HashMap<>();
+    public final static Map<Character, Integer> alphabetIndex = new HashMap<>();
 
     static {
         for (int i = 0; i < ALPHABET.length; i++) {

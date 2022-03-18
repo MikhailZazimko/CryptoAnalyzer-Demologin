@@ -37,7 +37,7 @@ public class Analyze implements Action {
         } catch (IOException e) {
             throw new AppException(e.getMessage(), e);
         }
-        return new Result(ResultCode.OK, "Analyze");
+        return new Result(ResultCode.OK, analyzed);
     }
 
     private List<Character> getIntegerMap(String encryptedFile) {

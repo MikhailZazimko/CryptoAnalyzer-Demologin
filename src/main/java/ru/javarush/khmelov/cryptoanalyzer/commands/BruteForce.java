@@ -20,7 +20,7 @@ public class BruteForce implements Action {
         for (int key = 0; key < Constants.ALPHABET.length; key++) {
             int spaceCount = 0;
             try (
-                    BufferedReader reader = Files.newBufferedReader(PathBuilder.get(encryptedFile));
+                    BufferedReader reader = Files.newBufferedReader(PathBuilder.get(encryptedFile))
             ) {
                 while (reader.ready()) {
                     Character character = (char) reader.read();
