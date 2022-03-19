@@ -8,6 +8,8 @@ import ru.javarush.khmelov.cryptoanalyzer.util.PathBuilder;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -31,19 +33,19 @@ public class MainForm extends JFrame {
     private JTextField encrypted;
     private JButton setDecrypted;
     private JButton setBruteforce;
-    private JButton setAnalized;
+    private JButton setAnalyzed;
     private JTextField decrypted;
     private JTextField bruteforce;
     private JTextField analyzed;
     private JButton runEncode;
     private JButton runDecode;
     private JButton runBruteforce;
-    private JButton analyze;
+    private JButton runAnalyze;
     private JButton loadText;
-    private JButton loadEncrytpted;
+    private JButton loadEncrypted;
     private JButton loadDecrypted;
     private JButton loadBruteforce;
-    private JButton loadAnaliyzed;
+    private JButton loadAnalyzed;
     private JSlider keySlider;
     private JButton swap;
     private JSpinner key;
@@ -53,8 +55,23 @@ public class MainForm extends JFrame {
     private JTextField ch1;
     private JTextField ch2;
 
-    static {
+    static  {
         setLookAndFeel("Nimbus");
+    }
+
+    @SuppressWarnings("SameParameterValue")
+    private static void setLookAndFeel(String nameLookAndFeel) {
+        try {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if (nameLookAndFeel.equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+            LookAndFeel lookAndFeel = UIManager.getLookAndFeel();
+            System.out.println(lookAndFeel);
+        }
     }
 
     public MainForm(MainController controller) {
@@ -72,7 +89,10 @@ public class MainForm extends JFrame {
         initKeyListeners();
         initCharacterSwapListeners();
 
+        initCharacterInputListener();
     }
+
+
 
     private void initOpenFileDialogs() {
         addDialog(setText, text);
@@ -80,16 +100,16 @@ public class MainForm extends JFrame {
         addDialog(setDecrypted, decrypted);
         addDialog(setBruteforce, bruteforce);
         addDialog(setDict, dict);
-        addDialog(setAnalized, analyzed);
+        addDialog(setAnalyzed, analyzed);
     }
 
     private void initLoadButtons() {
         setLoad(loadText, text);
-        setLoad(loadEncrytpted, encrypted);
+        setLoad(loadEncrypted, encrypted);
         setLoad(loadDecrypted, decrypted);
         setLoad(loadBruteforce, bruteforce);
         setLoad(loadDict, dict);
-        setLoad(loadAnaliyzed, analyzed);
+        setLoad(loadAnalyzed, analyzed);
     }
 
     private void initCommandListeners() {
@@ -99,7 +119,7 @@ public class MainForm extends JFrame {
                 encrypted.getText(), decrypted.getText(), key.getValue().toString()));
         runBruteforce.addActionListener(e -> run("bruteforce",
                 encrypted.getText(), bruteforce.getText()));
-        analyze.addActionListener(e -> run("analyze",
+        runAnalyze.addActionListener(e -> run("analyze",
                 encrypted.getText(), dict.getText(), analyzed.getText()));
     }
 
@@ -130,9 +150,7 @@ public class MainForm extends JFrame {
     }
 
     private void setLoad(JButton loadButton, JTextField textField) {
-        loadButton.addActionListener(e -> {
-            loadText(textField.getText());
-        });
+        loadButton.addActionListener(e -> loadText(textField.getText()));
     }
 
     private void run(String command, String... parameters) {
@@ -168,7 +186,6 @@ public class MainForm extends JFrame {
         int y = screenSize.height;
         setBounds(x / 4, y / 4, x / 2, y / 2);
     }
-
     private void addDialog(JButton changeButton, JTextField jTextField) {
         changeButton.addActionListener(e -> {
             File file = new File(jTextField.getText());
@@ -182,20 +199,18 @@ public class MainForm extends JFrame {
 
     }
 
+    private void initCharacterInputListener() {
+        ch1.addKeyListener(clearField());
+        ch2.addKeyListener(clearField());
+    }
 
-    @SuppressWarnings("SameParameterValue")
-    private static void setLookAndFeel(String nameLookAndFeel) {
-        try {
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if (nameLookAndFeel.equals(info.getName())) {
-                    UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+    private KeyAdapter clearField() {
+        return new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                ((JTextField) e.getSource()).setText("");
             }
-        } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-            LookAndFeel lookAndFeel = UIManager.getLookAndFeel();
-            System.out.println(lookAndFeel);
-        }
+        };
     }
 
 
