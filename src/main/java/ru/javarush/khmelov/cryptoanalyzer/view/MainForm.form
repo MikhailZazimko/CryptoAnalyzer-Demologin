@@ -13,7 +13,14 @@
         <constraints border-constraint="North"/>
         <properties/>
         <border type="none"/>
-        <children/>
+        <children>
+          <component id="2b609" class="javax.swing.JLabel" binding="currentFilename">
+            <constraints border-constraint="West"/>
+            <properties>
+              <font style="1"/>
+            </properties>
+          </component>
+        </children>
       </grid>
       <grid id="56332" binding="left" layout-manager="GridBagLayout">
         <constraints border-constraint="West"/>
@@ -367,7 +374,7 @@
       <grid id="3bc98" binding="content" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints border-constraint="Center"/>
         <properties/>
-        <border type="empty">
+        <border type="etched">
           <size top="5" left="0" bottom="5" right="9"/>
         </border>
         <children>

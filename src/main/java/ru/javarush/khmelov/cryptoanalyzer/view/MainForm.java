@@ -3,7 +3,6 @@ package ru.javarush.khmelov.cryptoanalyzer.view;
 import ru.javarush.khmelov.cryptoanalyzer.controllers.MainController;
 import ru.javarush.khmelov.cryptoanalyzer.entity.Result;
 import ru.javarush.khmelov.cryptoanalyzer.entity.ResultCode;
-import ru.javarush.khmelov.cryptoanalyzer.exceptions.AppException;
 import ru.javarush.khmelov.cryptoanalyzer.util.PathBuilder;
 
 import javax.swing.*;
@@ -12,6 +11,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.util.Objects;
 
@@ -54,8 +54,9 @@ public class MainForm extends JFrame {
     private JButton setDict;
     private JTextField ch1;
     private JTextField ch2;
+    private JLabel currentFilename;
 
-    static  {
+    static {
         setLookAndFeel("Nimbus");
     }
 
@@ -76,8 +77,10 @@ public class MainForm extends JFrame {
 
     public MainForm(MainController controller) {
         this.controller = controller;
+        URL png = getClass().getResource("/icon.png");
+        Image image = Toolkit.getDefaultToolkit().getImage(png);
+        this.setIconImage(image);
         this.add(panel);
-
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setStartPosition();
@@ -91,7 +94,6 @@ public class MainForm extends JFrame {
 
         initCharacterInputListener();
     }
-
 
 
     private void initOpenFileDialogs() {
@@ -167,8 +169,10 @@ public class MainForm extends JFrame {
             String string = Files.readString(PathBuilder.get(filename));
             textArea.setText(string);
             textArea.setCaretPosition(0);
+            currentFilename.setText("View file: " + filename);
         } catch (IOException ex) {
-            throw new AppException("Don't load ", ex);
+            JOptionPane.showMessageDialog(this,
+                    "Can't load file:\n" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -186,6 +190,7 @@ public class MainForm extends JFrame {
         int y = screenSize.height;
         setBounds(x / 4, y / 4, x / 2, y / 2);
     }
+
     private void addDialog(JButton changeButton, JTextField jTextField) {
         changeButton.addActionListener(e -> {
             File file = new File(jTextField.getText());
