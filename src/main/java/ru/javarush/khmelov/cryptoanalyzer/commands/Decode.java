@@ -25,10 +25,9 @@ public class Decode implements Action {
                 char character = (char) reader.read();
                 if (Constants.alphabetIndex.containsKey(character)) {
                     Integer index = Constants.alphabetIndex.get(character);
-                    index = (index - key + Math.abs(key)*Constants.ALPHABET.length) % Constants.ALPHABET.length;
+                    index = (index - key + Math.abs(key) * Constants.ALPHABET.length) % Constants.ALPHABET.length;
                     writer.write(Constants.ALPHABET[index]);
-                }
-                if (character == '\n') {
+                } else if (character == '\n') {
                     writer.write(character);
                 }
             }

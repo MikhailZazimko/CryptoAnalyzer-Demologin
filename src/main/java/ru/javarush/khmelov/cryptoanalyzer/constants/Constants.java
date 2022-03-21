@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class Constants {
     private static final String rus = "ЙЦУКЕНГШЩЗХЪЭЖДЛОРПАВЫФЯЧСМИТЬБЮ";
-    private static final String symbols = "☮.,”’:-!? ";
+    private static final String symbols = "\n☮.,”’:-!? ";
 
     public static final char[] ALPHABET = (rus.toLowerCase() + symbols)
             .toCharArray();

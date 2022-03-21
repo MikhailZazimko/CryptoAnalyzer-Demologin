@@ -28,8 +28,7 @@ public class Encode implements Action {
                     Integer index = Constants.alphabetIndex.get(character);
                     index = (index + key) % Constants.ALPHABET.length;
                     writer.write(Constants.ALPHABET[index]);
-                }
-                if (character == '\n') {
+                } else if (character == '\n') {
                     writer.write(character);
                 }
             }

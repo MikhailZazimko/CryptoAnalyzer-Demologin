@@ -11,6 +11,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Analyze implements Action {
     @Override
@@ -18,8 +19,10 @@ public class Analyze implements Action {
         String encryptedFile = parameters[0];
         String dict = parameters[1];
         String analyzed = parameters[2];
+
         List<Character> dictCharacters = getIntegerMap(dict);
         List<Character> encryptedCharacters = getIntegerMap(encryptedFile);
+
         try (
                 BufferedReader reader = Files.newBufferedReader(PathBuilder.get(encryptedFile));
                 BufferedWriter writer = Files.newBufferedWriter(PathBuilder.get(analyzed))
@@ -29,8 +32,7 @@ public class Analyze implements Action {
                 int index = encryptedCharacters.indexOf(character);
                 if (index >= 0) {
                     writer.write(dictCharacters.get(index));
-                }
-                if (character == '\n') {
+                } else if (character == '\n') {
                     writer.write(character);
                 }
             }
@@ -41,10 +43,13 @@ public class Analyze implements Action {
     }
 
     private List<Character> getIntegerMap(String encryptedFile) {
-        Map<Character, Integer> map = new LinkedHashMap<>();
-        for (Character character : Constants.alphabetIndex.keySet()) {
-            map.put(character, 0);
-        }
+        Map<Character, Integer> map = Constants
+                .alphabetIndex
+                .keySet()
+                .stream()
+                .collect(Collectors
+                        .toMap(character -> character, character -> 0, (a, b) -> b, LinkedHashMap::new)
+                );
         try (
                 BufferedReader reader = Files.newBufferedReader(PathBuilder.get(encryptedFile))
         ) {
@@ -59,14 +64,12 @@ public class Analyze implements Action {
         } catch (IOException e) {
             throw new AppException(e.getMessage(), e);
         }
-        List<Map.Entry<Character, Integer>> list = new ArrayList<>(map.entrySet());
-        list.sort(Comparator.comparingInt(Map.Entry::getValue));
-        List<Character> result = new ArrayList<>();
-        for (Map.Entry<Character, Integer> entry : list) {
-            result.add(entry.getKey());
-        }
-        System.out.println(result);
-        return result;
+        return Collections.unmodifiableList(map.entrySet()
+                .stream()
+                .sorted(Comparator.comparingInt(Map.Entry::getValue))
+                .map(Map.Entry::getKey)
+                .toList());
+
     }
 
 }
