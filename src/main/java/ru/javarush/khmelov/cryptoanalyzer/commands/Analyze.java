@@ -62,6 +62,7 @@ public class Analyze implements Action {
         } catch (IOException e) {
             throw new AppException(e.getMessage(), e);
         }
+
         return Collections.unmodifiableList(map.entrySet()
                 .stream()
                 .sorted(Comparator.comparingInt(Map.Entry::getValue))
@@ -72,13 +73,11 @@ public class Analyze implements Action {
     private Map<Character, Integer> createStartMap() {
         return Alphabet.index.keySet()
                 .stream()
-                .collect(Collectors
-                        .toMap(
-                                character -> character,
-                                character -> 0, (a, b) -> b,
-                                LinkedHashMap::new
-                        )
-                );
+                .collect(Collectors.toMap(
+                        character -> character,
+                        character -> 0, (a, b) -> b,
+                        LinkedHashMap::new
+                ));
     }
 
 }
