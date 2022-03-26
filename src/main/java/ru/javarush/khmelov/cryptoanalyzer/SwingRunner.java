@@ -1,6 +1,6 @@
 package ru.javarush.khmelov.cryptoanalyzer;
 
-import ru.javarush.khmelov.cryptoanalyzer.controllers.MainController;
+import ru.javarush.khmelov.cryptoanalyzer.controller.MainController;
 import ru.javarush.khmelov.cryptoanalyzer.view.swing.MainForm;
 
 public class SwingRunner {

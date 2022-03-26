@@ -1,6 +1,6 @@
-package ru.javarush.khmelov.cryptoanalyzer.commands;
+package ru.javarush.khmelov.cryptoanalyzer.command;
 
-import ru.javarush.khmelov.cryptoanalyzer.constants.Const;
+import ru.javarush.khmelov.cryptoanalyzer.constant.Const;
 import ru.javarush.khmelov.cryptoanalyzer.entity.Result;
 import ru.javarush.khmelov.cryptoanalyzer.entity.ResultCode;
 

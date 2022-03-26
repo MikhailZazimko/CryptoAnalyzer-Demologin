@@ -1,7 +1,7 @@
 package ru.javarush.khmelov.cryptoanalyzer;
 
 import picocli.CommandLine;
-import ru.javarush.khmelov.cryptoanalyzer.controllers.MainController;
+import ru.javarush.khmelov.cryptoanalyzer.controller.MainController;
 import ru.javarush.khmelov.cryptoanalyzer.view.picocli.Picocli;
 import ru.javarush.khmelov.cryptoanalyzer.view.picocli.PicocliApp;
 

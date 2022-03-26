@@ -1,6 +1,6 @@
 package ru.javarush.khmelov.cryptoanalyzer.util;
 
-import ru.javarush.khmelov.cryptoanalyzer.constants.Const;
+import ru.javarush.khmelov.cryptoanalyzer.constant.Const;
 
 import java.nio.file.Path;
 

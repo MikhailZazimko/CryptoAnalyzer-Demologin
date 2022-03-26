@@ -1,8 +1,8 @@
-package ru.javarush.khmelov.cryptoanalyzer.controllers;
+package ru.javarush.khmelov.cryptoanalyzer.controller;
 
-import ru.javarush.khmelov.cryptoanalyzer.commands.*;
-import ru.javarush.khmelov.cryptoanalyzer.constants.Const;
-import ru.javarush.khmelov.cryptoanalyzer.exceptions.AppException;
+import ru.javarush.khmelov.cryptoanalyzer.command.*;
+import ru.javarush.khmelov.cryptoanalyzer.constant.Const;
+import ru.javarush.khmelov.cryptoanalyzer.exception.AppException;
 
 @SuppressWarnings("unused")
 public enum ActionContainer {

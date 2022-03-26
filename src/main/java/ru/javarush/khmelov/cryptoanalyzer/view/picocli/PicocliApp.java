@@ -1,8 +1,8 @@
 package ru.javarush.khmelov.cryptoanalyzer.view.picocli;
 
-import ru.javarush.khmelov.cryptoanalyzer.controllers.MainController;
+import ru.javarush.khmelov.cryptoanalyzer.controller.MainController;
 import ru.javarush.khmelov.cryptoanalyzer.entity.Result;
-import ru.javarush.khmelov.cryptoanalyzer.exceptions.AppException;
+import ru.javarush.khmelov.cryptoanalyzer.exception.AppException;
 
 import java.util.Arrays;
 

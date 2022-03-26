@@ -6,7 +6,7 @@ import picocli.CommandLine.Model.CommandSpec;
 import picocli.CommandLine.ParameterException;
 import picocli.CommandLine.Parameters;
 import picocli.CommandLine.Spec;
-import ru.javarush.khmelov.cryptoanalyzer.constants.Const;
+import ru.javarush.khmelov.cryptoanalyzer.constant.Const;
 import ru.javarush.khmelov.cryptoanalyzer.entity.Result;
 
 import static ru.javarush.khmelov.cryptoanalyzer.view.picocli.Messages.*;

@@ -1,4 +1,4 @@
-package ru.javarush.khmelov.cryptoanalyzer.constants;
+package ru.javarush.khmelov.cryptoanalyzer.constant;
 
 import java.util.HashMap;
 import java.util.Map;
