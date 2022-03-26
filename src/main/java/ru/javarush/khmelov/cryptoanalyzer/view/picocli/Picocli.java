@@ -12,8 +12,8 @@ import ru.javarush.khmelov.cryptoanalyzer.entity.Result;
 import static ru.javarush.khmelov.cryptoanalyzer.view.picocli.Messages.*;
 
 @SuppressWarnings("unused")
-@Command(name = "cypher", subcommands = {CommandLine.HelpCommand.class},
-        description = "Caesar cypher command")
+@Command(name = APP_NAME, subcommands = {CommandLine.HelpCommand.class},
+        description = APP_DESCRIPTION)
 public class Picocli implements Runnable {
 
     private final PicocliApp application;

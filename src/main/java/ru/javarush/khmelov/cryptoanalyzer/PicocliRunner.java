@@ -11,7 +11,7 @@ public class PicocliRunner {
         MainController mainController = new MainController();
         PicocliApp application = new PicocliApp(mainController);
 
-        //picocli
+        //run picocli
         Picocli command = new Picocli(application);
         CommandLine commandLine = new CommandLine(command);
         int exitCode = commandLine.execute(args);

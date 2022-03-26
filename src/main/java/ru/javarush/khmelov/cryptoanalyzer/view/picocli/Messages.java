@@ -20,4 +20,6 @@ interface Messages {
     String KEY_HELP = "key for encryption";
 
     String SPECIFY_A_SUBCOMMAND = "Specify a subcommand";
+    String APP_NAME = "PicocliRunner";
+    String APP_DESCRIPTION = "Example: PicocliRunner command parameters...";
 }
