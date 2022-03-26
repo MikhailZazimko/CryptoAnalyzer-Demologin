@@ -85,22 +85,29 @@ public class MainForm extends JFrame {
     }
 
     public void initialization() {
-        URL png = getClass().getResource("/icon.png");
-        Image image = Toolkit.getDefaultToolkit().getImage(png);
-        this.setIconImage(image);
-        this.add(panel);
-        setVisible(true);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setStartPosition();
-        setDefaultValues(text, encrypted, decrypted, bruteforce, dict, analyzed);
+        setIcon();
+        initView();
 
         initOpenFileDialogs();
         initLoadButtons();
         initCommandListeners();
         initKeyListeners();
         initCharacterSwapListeners();
-
         initCharacterInputListener();
+    }
+
+    private void initView() {
+        this.add(panel);
+        setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setStartPosition();
+        setDefaultValues(text, encrypted, decrypted, bruteforce, dict, analyzed);
+    }
+
+    private void setIcon() {
+        URL png = getClass().getResource("/icon.png");
+        Image image = Toolkit.getDefaultToolkit().getImage(png);
+        this.setIconImage(image);
     }
 
 
@@ -133,20 +140,6 @@ public class MainForm extends JFrame {
                 encrypted.getText(), dict.getText(), analyzed.getText()));
     }
 
-    private void initCharacterSwapListeners() {
-        swap.addActionListener(e -> {
-            char ch1 = this.ch1.getText().charAt(0);
-            char ch2 = this.ch2.getText().charAt(0);
-
-            String text = textArea.getText();
-            text = text.replace(ch1, '~');
-            text = text.replace(ch2, ch1);
-            text = text.replace('~', ch2);
-            textArea.setText(text);
-            textArea.setCaretPosition(0);
-        });
-    }
-
     private void initKeyListeners() {
 
         int startKey = 1;
@@ -163,6 +156,25 @@ public class MainForm extends JFrame {
             keySlider.setValue(value);
         });
 
+    }
+
+    private void initCharacterSwapListeners() {
+        swap.addActionListener(e -> {
+            char ch1 = this.ch1.getText().charAt(0);
+            char ch2 = this.ch2.getText().charAt(0);
+
+            String text = textArea.getText();
+            text = text.replace(ch1, '~');
+            text = text.replace(ch2, ch1);
+            text = text.replace('~', ch2);
+            textArea.setText(text);
+            textArea.setCaretPosition(0);
+        });
+    }
+
+    private void initCharacterInputListener() {
+        ch1.addKeyListener(clearField());
+        ch2.addKeyListener(clearField());
     }
 
     private void setLoad(JButton loadButton, JTextField textField) {
@@ -218,11 +230,6 @@ public class MainForm extends JFrame {
             }
         });
 
-    }
-
-    private void initCharacterInputListener() {
-        ch1.addKeyListener(clearField());
-        ch2.addKeyListener(clearField());
     }
 
     private KeyAdapter clearField() {
