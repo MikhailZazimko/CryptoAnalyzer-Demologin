@@ -1,4 +1,4 @@
-package ru.javarush.khmelov.cryptoanalyzer;
+package ru.javarush.khmelov.cryptoanalyzer.view.picocli;
 
 import ru.javarush.khmelov.cryptoanalyzer.controllers.MainController;
 import ru.javarush.khmelov.cryptoanalyzer.entity.Result;
@@ -6,12 +6,13 @@ import ru.javarush.khmelov.cryptoanalyzer.exceptions.AppException;
 
 import java.util.Arrays;
 
-public class Application {
+@SuppressWarnings("ClassCanBeRecord")
+public class PicocliApp {
 
     private final MainController mainController;
 
-    public Application() {
-        mainController = new MainController();
+    public PicocliApp(MainController mainController) {
+        this.mainController = mainController;
     }
 
     public Result run(String[] args) {

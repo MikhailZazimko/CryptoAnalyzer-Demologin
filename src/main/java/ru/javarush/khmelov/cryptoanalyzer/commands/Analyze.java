@@ -1,6 +1,6 @@
 package ru.javarush.khmelov.cryptoanalyzer.commands;
 
-import ru.javarush.khmelov.cryptoanalyzer.constants.Constants;
+import ru.javarush.khmelov.cryptoanalyzer.constants.Alphabet;
 import ru.javarush.khmelov.cryptoanalyzer.entity.Result;
 import ru.javarush.khmelov.cryptoanalyzer.entity.ResultCode;
 import ru.javarush.khmelov.cryptoanalyzer.exceptions.AppException;
@@ -16,45 +16,41 @@ import java.util.stream.Collectors;
 public class Analyze implements Action {
     @Override
     public Result execute(String[] parameters) {
-        String encryptedFile = parameters[0];
-        String dict = parameters[1];
-        String analyzed = parameters[2];
+        String encryptedFilename = parameters[0];
+        String dictionaryFilename = parameters[1];
+        String analyzedFilename = parameters[2];
 
-        List<Character> dictCharacters = getIntegerMap(dict);
-        List<Character> encryptedCharacters = getIntegerMap(encryptedFile);
+        List<Character> dictCharacters = getIntegerMap(dictionaryFilename);
+        List<Character> encryptedCharacters = getIntegerMap(encryptedFilename);
 
         try (
-                BufferedReader reader = Files.newBufferedReader(PathBuilder.get(encryptedFile));
-                BufferedWriter writer = Files.newBufferedWriter(PathBuilder.get(analyzed))
+                BufferedReader reader = Files.newBufferedReader(PathBuilder.get(encryptedFilename));
+                BufferedWriter writer = Files.newBufferedWriter(PathBuilder.get(analyzedFilename))
         ) {
-            while (reader.ready()) {
-                char character = (char) reader.read();
+            int value;
+            while ((value = reader.read()) > -1) {
+                char character = (char) value;
                 int index = encryptedCharacters.indexOf(character);
-                if (index >= 0) {
-                    writer.write(dictCharacters.get(index));
-                } else if (character == '\n') {
-                    writer.write(character);
-                }
+                Character characterDecrypted = dictCharacters.get(index);
+                writer.write(
+                        characterDecrypted != null
+                                ? characterDecrypted
+                                : character);
             }
         } catch (IOException e) {
             throw new AppException(e.getMessage(), e);
         }
-        return new Result(ResultCode.OK, analyzed);
+        return new Result(ResultCode.OK, analyzedFilename);
     }
 
     private List<Character> getIntegerMap(String encryptedFile) {
-        Map<Character, Integer> map = Constants
-                .alphabetIndex
-                .keySet()
-                .stream()
-                .collect(Collectors
-                        .toMap(character -> character, character -> 0, (a, b) -> b, LinkedHashMap::new)
-                );
+        Map<Character, Integer> map = createStartMap();
         try (
                 BufferedReader reader = Files.newBufferedReader(PathBuilder.get(encryptedFile))
         ) {
-            while (reader.ready()) {
-                char character = (char) reader.read();
+            int value;
+            while ((value = reader.read()) > -1) {
+                char character = (char) value;
                 character = Character.toLowerCase(character);
                 if (map.containsKey(character)) {
                     Integer i = map.get(character);
@@ -70,6 +66,20 @@ public class Analyze implements Action {
                 .map(Map.Entry::getKey)
                 .toList());
 
+    }
+
+    private Map<Character, Integer> createStartMap() {
+        return Alphabet
+                .index
+                .keySet()
+                .stream()
+                .collect(Collectors
+                        .toMap(
+                                character -> character,
+                                character -> 0, (a, b) -> b,
+                                LinkedHashMap::new
+                        )
+                );
     }
 
 }

@@ -1,10 +1,11 @@
 package ru.javarush.khmelov.cryptoanalyzer.util;
 
-import ru.javarush.khmelov.cryptoanalyzer.constants.Constants;
+import ru.javarush.khmelov.cryptoanalyzer.constants.Const;
 
 import java.nio.file.Path;
 
 public class PathBuilder {
+
     private PathBuilder() {
     }
 
@@ -12,7 +13,7 @@ public class PathBuilder {
         Path path = Path.of(filename);
         return path.isAbsolute()
                 ? path
-                : Path.of(Constants.TXT_FOLDER + filename);
+                : Path.of(Const.TXT_FOLDER + filename);
     }
 }
 

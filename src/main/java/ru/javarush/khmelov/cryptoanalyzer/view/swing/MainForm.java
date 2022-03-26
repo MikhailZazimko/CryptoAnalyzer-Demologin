@@ -1,5 +1,6 @@
-package ru.javarush.khmelov.cryptoanalyzer.view;
+package ru.javarush.khmelov.cryptoanalyzer.view.swing;
 
+import ru.javarush.khmelov.cryptoanalyzer.constants.Const;
 import ru.javarush.khmelov.cryptoanalyzer.controllers.MainController;
 import ru.javarush.khmelov.cryptoanalyzer.entity.Result;
 import ru.javarush.khmelov.cryptoanalyzer.entity.ResultCode;
@@ -17,6 +18,10 @@ import java.util.Objects;
 
 @SuppressWarnings("unused")
 public class MainForm extends JFrame {
+
+    private static final int PERCENT_SCREEN = 60;
+    public static final int MAX_PERCENT_SCREEN = 100;
+    public static final String OK_MESSAGE = "OK";
 
     private final MainController controller;
 
@@ -56,6 +61,10 @@ public class MainForm extends JFrame {
     private JTextField ch2;
     private JLabel currentFilename;
 
+    public MainForm(MainController controller) {
+        this.controller = controller;
+    }
+
     static {
         setLookAndFeel("Nimbus");
     }
@@ -75,8 +84,7 @@ public class MainForm extends JFrame {
         }
     }
 
-    public MainForm(MainController controller) {
-        this.controller = controller;
+    public void initialization() {
         URL png = getClass().getResource("/icon.png");
         Image image = Toolkit.getDefaultToolkit().getImage(png);
         this.setIconImage(image);
@@ -115,13 +123,13 @@ public class MainForm extends JFrame {
     }
 
     private void initCommandListeners() {
-        runEncode.addActionListener(e -> run("encode",
+        runEncode.addActionListener(e -> run(Const.ENCODE,
                 text.getText(), encrypted.getText(), key.getValue().toString()));
-        runDecode.addActionListener(e -> run("decode",
+        runDecode.addActionListener(e -> run(Const.DECODE,
                 encrypted.getText(), decrypted.getText(), key.getValue().toString()));
-        runBruteforce.addActionListener(e -> run("bruteforce",
+        runBruteforce.addActionListener(e -> run(Const.BRUTEFORCE,
                 encrypted.getText(), bruteforce.getText()));
-        runAnalyze.addActionListener(e -> run("analyze",
+        runAnalyze.addActionListener(e -> run(Const.ANALYZE,
                 encrypted.getText(), dict.getText(), analyzed.getText()));
     }
 
@@ -140,6 +148,7 @@ public class MainForm extends JFrame {
     }
 
     private void initKeyListeners() {
+
         keySlider.addChangeListener(e -> {
             int value = keySlider.getValue();
             key.setValue(value);
@@ -149,6 +158,7 @@ public class MainForm extends JFrame {
             int value = Integer.parseInt(key.getValue().toString());
             keySlider.setValue(value);
         });
+
     }
 
     private void setLoad(JButton loadButton, JTextField textField) {
@@ -186,16 +196,18 @@ public class MainForm extends JFrame {
     private void setStartPosition() {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension screenSize = toolkit.getScreenSize();
-        int x = screenSize.width;
-        int y = screenSize.height;
-        setBounds(x / 4, y / 4, x / 2, y / 2);
+        int width = screenSize.width * PERCENT_SCREEN / MAX_PERCENT_SCREEN;
+        int height = screenSize.height * PERCENT_SCREEN / MAX_PERCENT_SCREEN;
+        int offsetX = (screenSize.width - width) / 2;
+        int offsetY = (screenSize.height - height) / 2;
+        setBounds(offsetX, offsetY, width, height);
     }
 
     private void addDialog(JButton changeButton, JTextField jTextField) {
         changeButton.addActionListener(e -> {
             File file = new File(jTextField.getText());
             JFileChooser jFileChooser = new JFileChooser(file.getParent());
-            jFileChooser.showDialog(this, "OK");
+            jFileChooser.showDialog(this, OK_MESSAGE);
             File selectedFile = jFileChooser.getSelectedFile();
             if (Objects.nonNull(selectedFile)) {
                 jTextField.setText(selectedFile.toString());
