@@ -11,8 +11,7 @@ public class Alphabet {
     private static final String rus = "ЙЦУКЕНГШЩЗХЪЭЖДЛОРПАВЫФЯЧСМИТЬБЮ";
     private static final String symbols = "\n☮.,”’:-!? ";
 
-    public static final char[] CHARS = (rus.toLowerCase() + symbols)
-            .toCharArray();
+    public static final char[] CHARS = (rus.toLowerCase() + symbols).toCharArray();
 
     public final static Map<Character, Integer> index = new HashMap<>();
 

@@ -149,6 +149,10 @@ public class MainForm extends JFrame {
 
     private void initKeyListeners() {
 
+        int startKey = 1;
+        key.setValue(startKey);
+        keySlider.setValue(startKey);
+
         keySlider.addChangeListener(e -> {
             int value = keySlider.getValue();
             key.setValue(value);
@@ -168,7 +172,7 @@ public class MainForm extends JFrame {
     private void run(String command, String... parameters) {
         Result result = controller.doAction(command, parameters);
         if (result.resultCode == ResultCode.OK) {
-            loadText(result.resultFile);
+            loadText(result.message);
         } else {
             System.out.println(result);
         }

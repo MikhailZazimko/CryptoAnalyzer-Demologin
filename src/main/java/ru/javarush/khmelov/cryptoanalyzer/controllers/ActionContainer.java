@@ -1,6 +1,7 @@
 package ru.javarush.khmelov.cryptoanalyzer.controllers;
 
 import ru.javarush.khmelov.cryptoanalyzer.commands.*;
+import ru.javarush.khmelov.cryptoanalyzer.constants.Const;
 import ru.javarush.khmelov.cryptoanalyzer.exceptions.AppException;
 
 @SuppressWarnings("unused")
@@ -9,7 +10,8 @@ public enum ActionContainer {
     ENCODE(new Encode()),
     DECODE(new Decode()),
     BRUTEFORCE(new BruteForce()),
-    ANALYZE(new Analyze());
+    ANALYZE(new Analyze()),
+    EXIT(new Exit());
 
     private final Action action;
 
@@ -22,7 +24,8 @@ public enum ActionContainer {
             ActionContainer value = ActionContainer.valueOf(actionName.toUpperCase());
             return value.action;
         } catch (IllegalArgumentException e) {
-            throw new AppException("not found action: " + actionName, e);
+            String message = String.format(Const.NOT_FOUND_ACTION_FORMAT, actionName);
+            throw new AppException(message, e);
         }
     }
 }

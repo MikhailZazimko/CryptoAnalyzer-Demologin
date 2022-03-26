@@ -16,7 +16,6 @@ public class Menu {
 
     public String[] getArgs() {
         int mode = getMode(scanner);
-        mode--;
         String[] args = new String[QUESTIONS[mode].length];
         args[0] = QUESTIONS[mode][0][0];
         for (int i = 1; i < args.length; i++) {
@@ -34,10 +33,11 @@ public class Menu {
             System.out.println(MESSAGE_SELECT_MODE);
             String input = scanner.nextLine();
             mode = switch (input) {
-                case "1" -> 1;
-                case "2" -> 2;
-                case "3" -> 3;
-                case "4" -> 4;
+                case "1" -> 0;
+                case "2" -> 1;
+                case "3" -> 2;
+                case "4" -> 3;
+                case "5" -> 4;
                 default -> {
                     System.out.println(INCORRECT_SELECTION);
                     yield -1;

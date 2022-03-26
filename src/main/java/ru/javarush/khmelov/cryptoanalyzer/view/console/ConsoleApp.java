@@ -18,38 +18,33 @@ public class ConsoleApp {
     }
 
     public void run(String[] args) {
-        //Life cycle app
         Result result;
         do {
             if (args.length == 0) {
                 args = menu.getArgs();
             }
-            //work phase
             result = getResult(args);
             print(result);
-            //next request
             args = new String[0];
         } while (result.resultCode == ResultCode.ERROR);
     }
 
 
-    private void print(Result result) {
-        String message = switch (result.resultCode) {
-            case OK -> String.format("""
-                        Operation complete
-                        Result file: %s
-                    """, result.resultFile);
-            case ERROR -> String.format("""
-                        ERROR
-                        Result file: %s
-                    """, result.resultFile);
-        };
-        System.out.println(message);
-    }
-
     private Result getResult(String[] args) {
         String action = args[0];
         String[] parameters = Arrays.copyOfRange(args, 1, args.length);
         return mainController.doAction(action, parameters);
+    }
+
+    private void print(Result result) {
+        String message = switch (result.resultCode) {
+            case OK -> String.format(
+                    Messages.OK_FORMAT, result.message
+            );
+            case ERROR -> String.format(
+                    Messages.ERR_FORMAT, result.message
+            );
+        };
+        System.out.println(message);
     }
 }
