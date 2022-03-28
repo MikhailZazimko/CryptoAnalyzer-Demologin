@@ -1,6 +1,5 @@
 package ru.javarush.khmelov.cryptoanalyzer.view.console;
 
-import java.util.Objects;
 import java.util.Scanner;
 
 import static ru.javarush.khmelov.cryptoanalyzer.view.console.Messages.*;
@@ -22,7 +21,7 @@ public class Menu {
             String quest = QUESTIONS[mode][i][0];
             System.out.println(quest);
             String answer = scanner.nextLine();
-            args[i] = Objects.isNull(answer) || answer.isEmpty() ? QUESTIONS[mode][i][1] : answer;
+            args[i] = "".equals(answer.trim()) ? QUESTIONS[mode][i][1] : answer;
         }
         return args;
     }
